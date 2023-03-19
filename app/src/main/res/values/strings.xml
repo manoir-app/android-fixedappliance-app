@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Manoir for Fixed Appliances</string>
+
+    <string name="restriction_root_url_title">Root url</string>
+    <string name="restriction_root_url_description">Url for your root server /devicehome/ will be appended if not set in the url</string>
+
 </resources>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<restrictions xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <restriction android:key="rootUrl"
+        android:defaultValue="https://login.manoir.app"
+        android:description="@string/restriction_root_url_description"
+        android:title="@string/restriction_root_url_title"
+        android:restrictionType="string" />
+
+
+</restrictions>

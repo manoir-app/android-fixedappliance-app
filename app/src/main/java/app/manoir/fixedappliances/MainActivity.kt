@@ -1,5 +1,7 @@
 package app.manoir.fixedappliances
 
+import android.content.Context
+import android.content.RestrictionsManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
@@ -32,6 +34,26 @@ class MainActivity : AppCompatActivity() {
 
         b.webViewClient = ManoirWebViewClient();
 
-        b.loadUrl("https://home.anzin.carbenay.manoir.app/devicehome/");
+        var url = getRootUrl();
+        b.loadUrl(url);
+    }
+
+    private fun getRootUrl(): String {
+        var url = "https://home.anzin.carbenay.manoir.app/devicehome/";
+        var restrictionManager =
+            this.getSystemService(RESTRICTIONS_SERVICE) as RestrictionsManager;
+        var config = restrictionManager.applicationRestrictions;
+        if (config != null) {
+            if (config.containsKey("rootUrl")) {
+                val tmp = config.getString("rootUrl");
+                if (tmp != null)
+                    url = tmp;
+                if (!url.endsWith(("/")))
+                    url = url + "/";
+                if (!url.endsWith("/devicehome/"))
+                    url = url + "devicehome/";
+            }
+        }
+        return url
     }
 }
