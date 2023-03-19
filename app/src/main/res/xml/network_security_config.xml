@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+	<domain-config cleartextTrafficPermitted="true">
+		<trust-anchors>
+			<certificates src="@raw/isrgrootx1" />
+			<certificates src="@raw/isrgrootx1crosssigned" />
+			<certificates src="@raw/letsencryptr3" />
+			<certificates src="@raw/letsencryptr4" />
+		</trust-anchors>
+		<domain includeSubdomains="true">manoir.app</domain>
+
+	</domain-config>
+</network-security-config>
