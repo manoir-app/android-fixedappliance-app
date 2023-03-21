@@ -31,8 +31,10 @@ class MainActivity : AppCompatActivity() {
         b.settings.javaScriptEnabled = true;
         b.settings.builtInZoomControls = false;
         b.settings.useWideViewPort = false;
+        b.settings.domStorageEnabled = true;
 
         b.webViewClient = ManoirWebViewClient();
+        b.webChromeClient = ManoirChromeWebClient();
 
         var url = getRootUrl();
         b.loadUrl(url);
